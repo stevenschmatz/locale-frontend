@@ -2,8 +2,8 @@
 //  AppDelegate.swift
 //  Locale
 //
-//  Created by Steven on 10/15/14.
-//  Copyright (c) 2014 stevenschmatz. All rights reserved.
+//  Created on 10/15/14.
+//  Copyright (c) 2014 locale. All rights reserved.
 //
 
 import UIKit
