@@ -1,5 +1,5 @@
 //
-//  SecondViewController.swift
+//  ChatViewController.swift
 //  Locale
 //
 //  Created on 10/15/14.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SecondViewController: UIViewController {
+class ChatViewController: UIViewController {
                             
     override func viewDidLoad() {
         super.viewDidLoad()

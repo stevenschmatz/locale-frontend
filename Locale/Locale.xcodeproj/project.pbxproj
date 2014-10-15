@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		282E0E9519EEF59400DE8601 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282E0E9419EEF59400DE8601 /* AppDelegate.swift */; };
 		282E0E9719EEF59400DE8601 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282E0E9619EEF59400DE8601 /* FirstViewController.swift */; };
-		282E0E9919EEF59400DE8601 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282E0E9819EEF59400DE8601 /* SecondViewController.swift */; };
+		282E0E9919EEF59400DE8601 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282E0E9819EEF59400DE8601 /* ChatViewController.swift */; };
 		282E0E9C19EEF59400DE8601 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 282E0E9A19EEF59400DE8601 /* Main.storyboard */; };
 		282E0E9E19EEF59400DE8601 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 282E0E9D19EEF59400DE8601 /* Images.xcassets */; };
 		282E0EAA19EEF59400DE8601 /* LocaleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282E0EA919EEF59400DE8601 /* LocaleTests.swift */; };
@@ -30,7 +30,7 @@
 		282E0E9319EEF59400DE8601 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		282E0E9419EEF59400DE8601 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		282E0E9619EEF59400DE8601 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		282E0E9819EEF59400DE8601 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		282E0E9819EEF59400DE8601 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		282E0E9B19EEF59400DE8601 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		282E0E9D19EEF59400DE8601 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		282E0EA319EEF59400DE8601 /* LocaleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LocaleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -79,7 +79,7 @@
 			children = (
 				282E0E9419EEF59400DE8601 /* AppDelegate.swift */,
 				282E0E9619EEF59400DE8601 /* FirstViewController.swift */,
-				282E0E9819EEF59400DE8601 /* SecondViewController.swift */,
+				282E0E9819EEF59400DE8601 /* ChatViewController.swift */,
 				282E0E9A19EEF59400DE8601 /* Main.storyboard */,
 				282E0E9D19EEF59400DE8601 /* Images.xcassets */,
 				282E0E9219EEF59400DE8601 /* Supporting Files */,
@@ -211,7 +211,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				282E0E9919EEF59400DE8601 /* SecondViewController.swift in Sources */,
+				282E0E9919EEF59400DE8601 /* ChatViewController.swift in Sources */,
 				282E0E9519EEF59400DE8601 /* AppDelegate.swift in Sources */,
 				282E0E9719EEF59400DE8601 /* FirstViewController.swift in Sources */,
 			);
@@ -401,6 +401,7 @@
 				282E0EAF19EEF59400DE8601 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		282E0EB019EEF59400DE8601 /* Build configuration list for PBXNativeTarget "LocaleTests" */ = {
 			isa = XCConfigurationList;
@@ -409,6 +410,7 @@
 				282E0EB219EEF59400DE8601 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
