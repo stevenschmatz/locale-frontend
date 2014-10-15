@@ -8,7 +8,7 @@
 
 import Foundation
 
-// class Connection is used to manage multiple
+// class Connection is used to manage a TCP connection with the server.
 
 class Connection : NSObject, NSStreamDelegate {
     
@@ -68,8 +68,9 @@ class Connection : NSObject, NSStreamDelegate {
     * =================
     */
     
-    // EFFECTS: Handles stream events, such as detecting if a message is
-    //          received, if a connection was closed, or if an error occurred.
+    // MODIFIES:    aStream
+    // EFFECTS:     Handles stream events, such as detecting if a message is
+    //              received, if a connection was closed, or if an error occurred.
     func stream(aStream: NSStream, handleEvent eventCode: NSStreamEvent) {
         switch (eventCode) {
             
@@ -96,10 +97,21 @@ class Connection : NSObject, NSStreamDelegate {
         }
     }
     
+    /*
+    * ========================
+    * RUNTIME HELPER FUNCTIONS
+    * ========================
+    */
+    
+    // EFFECTS: Handles the event where a stream was opened.
     private func handleStreamOpened() {
         println("Stream opened!")
     }
     
+    // REQUIRES:    aStream be a reference to an open NSStream
+    // MODIFIES:    aStream
+    // EFFECTS:     Handles the event where a stream reads bytes
+    //              from the server.
     private func handleHasBytesAvailable(aStream: NSStream) {
         if (aStream == inputStream) {
             
@@ -110,8 +122,10 @@ class Connection : NSObject, NSStreamDelegate {
             var readBuffer = UnsafeMutablePointer<UInt8>.alloc(BUFFER_LENGTH + 1)
             var len = inputStream.read(readBuffer, maxLength: BUFFER_LENGTH)
             
+            // Ensures that bytes were read from server
             if (len > 0) {
                 var buf = UnsafeMutablePointer<CChar>(readBuffer)
+                
                 buf[BUFFER_LENGTH] = 0 // null-terminated, http://stackoverflow.com/questions/25840276/read-bytes-into-a-swift-string
                 
                 if let utf8String = String.fromCString(buf) {
@@ -121,17 +135,22 @@ class Connection : NSObject, NSStreamDelegate {
                 readBuffer.dealloc(BUFFER_LENGTH)
             }
             
+            // Custom override for message received here
             if (output != "") {
                 println("The server said \"\(output)\"")
             }
         }
     }
     
+    // EFFECTS: Handles the event where an error in stream
+    //          reading occurred.
     private func handleStreamErrorOccured() {
         println("Cannot connect to host!")
     }
     
-    // TODO: Does this pass by reference or value?
+    // REQUIRES:    aStream be a reference to an open NSStream
+    // MODIFIES:    aStream
+    // EFFECTS:     Handles the event where a stream is closed.
     private func handleStreamEndEncountered(aStream: NSStream) {
         aStream.close()
         aStream.removeFromRunLoop(NSRunLoop.currentRunLoop(), forMode: NSDefaultRunLoopMode)
