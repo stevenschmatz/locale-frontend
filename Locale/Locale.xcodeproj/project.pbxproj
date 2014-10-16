@@ -14,6 +14,7 @@
 		282E0E9E19EEF59400DE8601 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 282E0E9D19EEF59400DE8601 /* Images.xcassets */; };
 		282E0EAA19EEF59400DE8601 /* LocaleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282E0EA919EEF59400DE8601 /* LocaleTests.swift */; };
 		282E0EB419EF016200DE8601 /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282E0EB319EF016200DE8601 /* Connection.swift */; };
+		282E0EB819F038DB00DE8601 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 282E0EB719F038DB00DE8601 /* GCDAsyncSocket.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,9 @@
 		282E0EA819EEF59400DE8601 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		282E0EA919EEF59400DE8601 /* LocaleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaleTests.swift; sourceTree = "<group>"; };
 		282E0EB319EF016200DE8601 /* Connection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Connection.swift; sourceTree = "<group>"; };
+		282E0EB519F038DA00DE8601 /* Locale-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Locale-Bridging-Header.h"; sourceTree = "<group>"; };
+		282E0EB619F038DB00DE8601 /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
+		282E0EB719F038DB00DE8601 /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +83,8 @@
 		282E0E9119EEF59400DE8601 /* Locale */ = {
 			isa = PBXGroup;
 			children = (
+				282E0EB619F038DB00DE8601 /* GCDAsyncSocket.h */,
+				282E0EB719F038DB00DE8601 /* GCDAsyncSocket.m */,
 				282E0E9419EEF59400DE8601 /* AppDelegate.swift */,
 				282E0E9619EEF59400DE8601 /* FirstViewController.swift */,
 				282E0E9819EEF59400DE8601 /* ChatViewController.swift */,
@@ -86,6 +92,7 @@
 				282E0E9A19EEF59400DE8601 /* Main.storyboard */,
 				282E0E9D19EEF59400DE8601 /* Images.xcassets */,
 				282E0E9219EEF59400DE8601 /* Supporting Files */,
+				282E0EB519F038DA00DE8601 /* Locale-Bridging-Header.h */,
 			);
 			path = Locale;
 			sourceTree = "<group>";
@@ -215,6 +222,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				282E0E9919EEF59400DE8601 /* ChatViewController.swift in Sources */,
+				282E0EB819F038DB00DE8601 /* GCDAsyncSocket.m in Sources */,
 				282E0E9519EEF59400DE8601 /* AppDelegate.swift in Sources */,
 				282E0E9719EEF59400DE8601 /* FirstViewController.swift in Sources */,
 				282E0EB419EF016200DE8601 /* Connection.swift in Sources */,
@@ -335,9 +343,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Locale/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Locale/Locale-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -346,9 +357,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Locale/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Locale/Locale-Bridging-Header.h";
 			};
 			name = Release;
 		};

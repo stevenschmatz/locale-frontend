@@ -13,13 +13,13 @@ import Foundation
 class Connection : NSObject, NSStreamDelegate {
     
     /*
-    * =====================
-    * CONNECTION DATA MODEL
-    * =====================
+    * ===========================
+    * MARK: Connection Data Model
+    * ===========================
     */
     
     // Server IP and port
-    private let serverAddress: CFString = "35.2.23.158"
+    private let serverAddress: CFString = "35.2.213.76"
     private let serverPort: UInt32      = 8082
     
     // inputStream and outputStream control the TCP data flow
@@ -28,9 +28,9 @@ class Connection : NSObject, NSStreamDelegate {
     private var outputStream: NSOutputStream!
     
     /*
-    * =========================
-    * CONNECTION INITIALIZATION
-    * =========================
+    * ===============================
+    * MARK: Connection Initialization
+    * ===============================
     */
     
     // EFFECTS: Creates a socket connection with the server.
@@ -63,16 +63,16 @@ class Connection : NSObject, NSStreamDelegate {
     }
     
     /*
-    * =================
-    * RUNTIME FUNCTIONS
-    * =================
+    * =======================
+    * MARK: Runtime Functions
+    * =======================
     */
     
     // MODIFIES:    aStream
     // EFFECTS:     Handles stream events, such as detecting if a message is
     //              received, if a connection was closed, or if an error occurred.
     func stream(aStream: NSStream, handleEvent eventCode: NSStreamEvent) {
-        println(eventCode.toRaw())
+
         switch (eventCode) {
             
         case NSStreamEvent.OpenCompleted:
@@ -85,6 +85,7 @@ class Connection : NSObject, NSStreamDelegate {
             break;
             
         case NSStreamEvent.ErrorOccurred:
+            println(aStream.streamError)
             handleStreamErrorOccured()
             break;
             
@@ -98,10 +99,11 @@ class Connection : NSObject, NSStreamDelegate {
         }
     }
     
+    
     /*
-    * ========================
-    * RUNTIME HELPER FUNCTIONS
-    * ========================
+    * ==============================
+    * MARK: Runtime Helper Functions
+    * ==============================
     */
     
     // EFFECTS: Handles the event where a stream was opened.
@@ -122,23 +124,11 @@ class Connection : NSObject, NSStreamDelegate {
             
             var readBuffer = UnsafeMutablePointer<UInt8>.alloc(BUFFER_LENGTH + 1)
             var len = inputStream.read(readBuffer, maxLength: BUFFER_LENGTH)
+            println(readBuffer)
             
             // Ensures that bytes were read from server
             if (len > 0) {
-                var buf = UnsafeMutablePointer<CChar>(readBuffer)
-                
-                buf[BUFFER_LENGTH] = 0 // null-terminated, http://stackoverflow.com/questions/25840276/read-bytes-into-a-swift-string
-                
-                if let utf8String = String.fromCString(buf) {
-                    output = utf8String
-                }
-                
-                readBuffer.dealloc(BUFFER_LENGTH)
-            }
-            
-            // Custom override for message received here
-            if (output != "") {
-                println("The server said \"\(output)\"")
+                println(readBuffer)
             }
         }
     }
