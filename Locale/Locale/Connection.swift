@@ -19,8 +19,8 @@ class Connection : NSObject, NSStreamDelegate {
     */
     
     // Server IP and port
-    private let serverAddress: CFString = "35.2.74.172"
-    private let serverPort: UInt32      = 8081
+    private let serverAddress: CFString = "35.2.23.158"
+    private let serverPort: UInt32      = 8082
     
     // inputStream and outputStream control the TCP data flow
     // between the iOS client and server.
@@ -72,6 +72,7 @@ class Connection : NSObject, NSStreamDelegate {
     // EFFECTS:     Handles stream events, such as detecting if a message is
     //              received, if a connection was closed, or if an error occurred.
     func stream(aStream: NSStream, handleEvent eventCode: NSStreamEvent) {
+        println(eventCode.toRaw())
         switch (eventCode) {
             
         case NSStreamEvent.OpenCompleted:
