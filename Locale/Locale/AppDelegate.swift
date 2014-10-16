@@ -10,16 +10,12 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-                            
+    
     var window: UIWindow?
-    var conn = Connection()
-
+    var socket = Socket(host: "35.2.139.219", port: 8082)
 
     func application(application: UIApplication!, didFinishLaunchingWithOptions launchOptions: NSDictionary!) -> Bool {
         // Override point for customization after application launch.
-        
-        conn.initConnection()
-        
         return true
     }
 
